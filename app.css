@@ -8,13 +8,14 @@
     margin: auto;
     display: flex;
     flex-wrap: wrap;
+    border-radius: 10%;
     background-color: #191b28;
     height: auto;
     width: 650px;
-    -webkit-border-radius:10px;
-    -moz-border-radius:10px;
-    -ms-border-radius:10px;
-    -o-border-radius:10px;
+    -webkit-border-radius: 10%;
+    -moz-border-radius: 10%;
+    -ms-border-radius: 10%;
+    -o-border-radius: 10%;
 }
 #calc-button-number {
     display: flex;
@@ -32,6 +33,6 @@
 }
 .equals {
     display: flex;
+    text-align: justify;
     flex-grow: .5;
 }
-.period
