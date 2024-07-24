@@ -5,28 +5,26 @@ document.addEventListener("DOMContentLoaded", () => {
     let awaitInput = false;
 
     const calcLogic = (element) => {
-        const input = document.getElementById("input-form");
+        const input = document.getElementById("input-form"); //this is the display which is the input tag in html
         const clickedValue = element.value;
 
         if (clickedValue === "=") {
             if (input1 && operator && input2) {
-                    input.value = eval(`${input1} ${operator} ${input2}`); //uses eval func to compare operate on two strings 
-                    resetCalculator();
-
+                    input.value = eval(`${input1} ${operator} ${input2}`); // uses eval to evaluate expressoin
+                
+            } else {
+                input.value =resetCalculator();
             }
-            else {input.value = "User err";}
         } else if (isOperator(clickedValue)) {
             handleOperator(clickedValue);
         } else {
-            Number(clickedValue);
+            handleNumber(clickedValue);
         }
     };
 
     const isOperator = (value) => {
         const operators = ["*", "/", "-", "+"];
-        if (operators.includes(value)) {
-            return value;
-        }
+        return operators.includes(value);
     };
 
     const handleOperator = (clickedValue) => {
@@ -37,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    const Number = (clickedValue) => {
+    const handleNumber = (clickedValue) => {
         const input = document.getElementById("input-form");
 
         if (awaitInput) {
@@ -45,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
             input.value = input2;
         } else {
             input1 += clickedValue;
-            input.value = input1; 
+            input.value = input1;
         }
     };
 
@@ -53,57 +51,18 @@ document.addEventListener("DOMContentLoaded", () => {
         input1 = "";
         operator = "";
         input2 = "";
-        input.value += "";
         awaitInput = false;
+        return document.getElementById("input-form").value = "";
+
     };
 
-    const buttons = document.getElementsByClassName("calc-button-number");
+    const clearButton = document.getElementById("btn-clear");
+    clearButton.addEventListener("click", resetCalculator);
 
+    const buttons = document.getElementsByClassName("calc-button-number");
     for (let button of buttons) {
         button.addEventListener("click", function() {
             calcLogic(this);
         });
     }
 });
-
-
-/*
-const operatorsObj = {
-
-    add: "+",
-    subtract: "-",
-    multiply: "*",
-    divide: "/",
-    equals:"=",
-}
-
-
-
-let currInput = ""
-
-if (currInput.length > 0) {
-
-    const calc = (operator1, operator2) => {
-        let res;
-        const input1 = parseInt(operator1)
-        const input2 = parseInt(operator2)
-        switch (operator) {
-            case operatorsObj.add: res = input1 + input2
-                break;
-            case operatorsObj.subtract: res = input1 - input2
-                break;
-            case operatorsObj.multiply: res = input1 * input2
-                break;
-            case operatorsObj.divide:    res = input1 / input2
-                break;
-
-        }
-            return res;
-        }
-    }
-    */
-
-    
-
-
-

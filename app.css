@@ -20,8 +20,8 @@
 }
 #btnClear {
     display:flex;
+
     border: #191b28;
-    align-self: flex-end;
 }
 .calc-button-number {
     display: flex;
