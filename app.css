@@ -18,10 +18,10 @@
     -ms-border-radius: 10%;
     -o-border-radius: 10%;
 }
-#btnClear {
-    display:flex;
-
+#btn-clear {
+    display:inline-block;
     border: #191b28;
+    justify-content: right;
 }
 .calc-button-number {
     display: flex;
