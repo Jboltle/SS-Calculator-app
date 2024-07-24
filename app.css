@@ -12,10 +12,17 @@
     border-radius: 10%;
     background-color: #191b28;
     height: 650px;
-    width: 650px;
-    
+    width: 700px;
+    -webkit-border-radius: 10%;
+    -moz-border-radius: 10%;
+    -ms-border-radius: 10%;
+    -o-border-radius: 10%;
 }
-
+#btnClear {
+    display:flex;
+    border: #191b28;
+    align-self: flex-end;
+}
 .calc-button-number {
     display: flex;
     flex-wrap: wrap;

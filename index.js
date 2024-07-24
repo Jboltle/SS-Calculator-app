@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let input1 = "";
     let operator = "";
     let input2 = "";
-    let awaitInput = false; 
+    let awaitInput = false;
 
     const calcLogic = (element) => {
         const input = document.getElementById("input-form");
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (clickedValue === "=") {
             if (input1 && operator && input2) {
-                    input.value = eval(`${input1} ${operator} ${input2}`);
+                    input.value = eval(`${input1} ${operator} ${input2}`); //uses eval func to compare operate on two strings 
                     resetCalculator();
 
             }
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (isOperator(clickedValue)) {
             handleOperator(clickedValue);
         } else {
-            handleNumber(clickedValue);
+            Number(clickedValue);
         }
     };
 
@@ -33,11 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (input1 && !awaitInput) {
             operator = clickedValue;
             awaitInput = true;
-            document.getElementById("input-form").value = ""; 
+            document.getElementById("input-form").value = "";
         }
     };
 
-    const handleNumber = (clickedValue) => {
+    const Number = (clickedValue) => {
         const input = document.getElementById("input-form");
 
         if (awaitInput) {
@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         input1 = "";
         operator = "";
         input2 = "";
+        input.value += "";
         awaitInput = false;
     };
 
